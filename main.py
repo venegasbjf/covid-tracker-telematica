@@ -6,13 +6,23 @@ import os, pymysql
 app = Flask(__name__)
 
 # Mysql Connection
-"""conn = pymysql.connect(
-            host=os.getenv('FLASK_DATABASE_HOST'),
-            user=os.getenv('FLASK_DATABASE_USER'),
-            password=os.getenv('FLASK_DATABASE_PASSWORD'),
-            database=os.getenv('FLASK_DATABASE')
-        )
-cur=conn.cursor()"""
+app.config['MYSQL_HOST'] = os.getenv('dbHOST')
+app.config['MYSQL_USER'] = os.getenv('dbUSER')
+app.config['MYSQL_PASSWORD'] = os.getenv('dbPASSWORD')
+app.config['MYSQL_DB'] = os.getenv('dbNAME')
+mysql = MySQL(app)
+
+# Mysql Connection
+# conn = pymysql.connect(
+#             host=os.getenv('dbHOST'),
+#             user=os.getenv('dbUSER'),
+#             password=os.getenv('dbPASSWORD'),
+#             database=os.getenv('dbNAME'),
+#             cursorclass=pymysql.cursors.DictCursor
+#         )
+# cur=conn.cursor()
+
+
 
 # settings
 app.secret_key = "mysecretkey"
