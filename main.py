@@ -30,7 +30,7 @@ app.secret_key = "mysecretkey"
 # routes
 @app.route('/')
 def Index():
-    return "hola mundo"
+    return "hola ajdhasdjkasdjk"
 
 @app.route('/medico')
 def medico():
