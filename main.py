@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 import os, pymysql
+from dotenv import load_dotenv, find_dotenv
+
+# Load Enviroment Variables from .env file
+load_dotenv(find_dotenv())
 
 # initializations
 app = Flask(__name__)
@@ -10,19 +14,9 @@ app.config['MYSQL_HOST'] = os.getenv('dbHOST')
 app.config['MYSQL_USER'] = os.getenv('dbUSER')
 app.config['MYSQL_PASSWORD'] = os.getenv('dbPASSWORD')
 app.config['MYSQL_DB'] = os.getenv('dbNAME')
+
+
 mysql = MySQL(app)
-
-# Mysql Connection
-# conn = pymysql.connect(
-#             host=os.getenv('dbHOST'),
-#             user=os.getenv('dbUSER'),
-#             password=os.getenv('dbPASSWORD'),
-#             database=os.getenv('dbNAME'),
-#             cursorclass=pymysql.cursors.DictCursor
-#         )
-# cur=conn.cursor()
-
-
 
 # settings
 app.secret_key = "mysecretkey"
@@ -30,31 +24,40 @@ app.secret_key = "mysecretkey"
 # routes
 @app.route('/')
 def Index():
-    return "hola ajdhasdjkasdjk"
+    return "Hola Mundo"
 
-@app.route('/medico')
-def medico():
-    return render_template('index.html') 
 
-@app.route('/add_contact', methods=['POST'])
-def add_contact():
+# Modulo Administration
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
+
+@app.route('/add_user', methods=['POST'])
+def add_user():
     if request.method == 'POST':
-        fullname = request.form['fullname']
-        phone = request.form['phone']
-        email = request.form['email']
-        """conn = pymysql.connect(
-            host=os.getenv('FLASK_DATABASE_HOST'),
-            user=os.getenv('FLASK_DATABASE_USER'),
-            password=os.getenv('FLASK_DATABASE_PASSWORD'),
-            database=os.getenv('FLASK_DATABASE')
-        )
-        cur=conn.cursor()"""
+        name = request.form['firstName']
+        lastName = request.form['lastName']
+        idNumber = str(request.form['idNumber'])
+        rol = request.form['rol']
+        username = request.form['username']
+        password = request.form['password']
+        
+        cur = mysql.connection.cursor()
+        cur.execute('INSERT INTO `Modulo administración` (Nombres,Apellidos,Cédula,Rol,Usuario,Contraseña) VALUES(%s,%s,%s,%s,%s,%s)',
+        (name,lastName,idNumber,rol,username,password))
+        mysql.connection.commit()
 
-        """cur.execute("INSERT INTO contacts (fullname, phone, email) VALUES (%s,%s,%s)", (fullname, phone, email))
-        mysql.connection.commit()"""
-        print(fullname,phone,email)
-        flash('Contact Added successfully')
-        return "añadi el contacto"
+        return redirect(url_for('adminSuccess'))
+
+@app.route('/admin_success')
+def adminSuccess():
+    return render_template('admin-success.html')
+# END Modulo Administration
+
+
+# Modulo Otro
+
+# END Modulo Otro
 
 """@app.route('/edit/<id>', methods = ['POST', 'GET'])
 def get_contact(id):
