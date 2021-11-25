@@ -55,9 +55,32 @@ def adminSuccess():
 # END Modulo Administration
 
 
-# Modulo Otro
+# Modulo Registro caso
+@app.route('/registro')
+def registro():
+    return render_template('registro.html')
 
-# END Modulo Otro
+@app.route('/add_case', methods=['POST'])
+def add_case():
+    if request.method == 'POST':
+        name = request.form['firstName']
+        lastName = request.form['lastName']
+        idNumber = str(request.form['idNumber'])
+        Sexo = request.form['Sexo']
+        ResultadoExamen = request.form['ResultadoExamen']
+
+        
+        cur = mysql.connection.cursor()
+        cur.execute('INSERT INTO `Registro de Caso` (Nombres,Apellidos,Cédula,Sexo,Resultado Examen) VALUES(%s,%s,%s,%s,%s)',
+        (name,lastName,idNumber,Sexo,ResultadoExamen))
+        mysql.connection.commit()
+
+        return redirect(url_for('registroSuccess'))
+
+@app.route('/registro-Success')
+def registroSuccess():
+    return render_template('registro-Success.html')
+# END Modulo Registro Caso
 
 """@app.route('/edit/<id>', methods = ['POST', 'GET'])
 def get_contact(id):
