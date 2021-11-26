@@ -67,12 +67,16 @@ def add_case():
         lastName = request.form['lastName']
         idNumber = str(request.form['idNumber'])
         Sexo = request.form['Sexo']
+        FechaNacimiento = request.form['Fecha de nacimiento']
+        DireccionResidencia = request.form['Direccion de residencia']
+        DireccionTrabajo = request.form['Direccion trabajo']
         ResultadoExamen = request.form['ResultadoExamen']
+        FechaExamen = request.form['Fecha examen']
 
         
         cur = mysql.connection.cursor()
-        cur.execute('INSERT INTO `Registro de Caso` (Nombres,Apellidos,Cédula,Sexo,Resultado Examen) VALUES(%s,%s,%s,%s,%s)',
-        (name,lastName,idNumber,Sexo,ResultadoExamen))
+        cur.execute('INSERT INTO `Registro de Caso` (Nombres,Apellidos,Cédula,Sexo,Fecha de nacimiento,Dirección de residencia,Dirección Trabajo,Resultado Examen,Fecha examen) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)',
+        (name,lastName,idNumber,Sexo,FechaNacimiento,DireccionResidencia,DireccionTrabajo,ResultadoExamen,FechaExamen))
         mysql.connection.commit()
 
         return redirect(url_for('registroSuccess'))
