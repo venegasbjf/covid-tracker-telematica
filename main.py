@@ -81,7 +81,7 @@ def add_case():
 
         return redirect(url_for('registroSuccess'))
 
-@app.route('/registro-Success')
+@app.route('/registro_Success')
 def registroSuccess():
     return render_template('registro-Success.html')
 # END Modulo Registro Caso
