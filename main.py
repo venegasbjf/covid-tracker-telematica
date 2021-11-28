@@ -55,7 +55,9 @@ def adminSuccess():
 # END Modulo Administration
 
 #Modulo Visualización
-#ejjfkflakfjasfjas
+@app.route('/Mapa')
+def Mapa():
+    return render_template('Mapa.html')
 # Modulo Otro
 
 # END Modulo Otro
