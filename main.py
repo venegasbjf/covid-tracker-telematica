@@ -55,7 +55,7 @@ def adminSuccess():
 # END Modulo Administration
 
 #Modulo Visualización
-ejjfkflakfjasfjas
+#ejjfkflakfjasfjas
 # Modulo Otro
 
 # END Modulo Otro
