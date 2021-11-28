@@ -23,8 +23,8 @@ app.secret_key = "mysecretkey"
 
 # routes
 @app.route('/')
-def Index():
-    return "Hola Mundo"
+def PagiP():
+    return render_template('Pagina-principal.html')
 
 
 # Modulo Administration
