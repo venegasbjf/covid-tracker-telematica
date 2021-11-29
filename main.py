@@ -89,11 +89,6 @@ def registroSuccess():
     return render_template('registro-Success.html')
 # END Modulo Registro Caso
 
-@app.route('/registro_Success')
-def registroSuccess():
-    return render_template('registro-Success.html')
-# END Modulo Registro Caso
-
 #Modulo Visualización
 @app.route('/Visual')
 def Mapa():
