@@ -23,8 +23,8 @@ app.secret_key = "mysecretkey"
 
 # routes
 @app.route('/')
-def Index():
-    return "Hola Mundo"
+def PagiP():
+    return render_template('Pagina-principal.html')
 
 
 # Modulo Administration
@@ -55,10 +55,12 @@ def adminSuccess():
 # END Modulo Administration
 
 
+
 # Modulo Registro caso
 @app.route('/registro')
 def registro():
     return render_template('registro.html')
+
 
 @app.route('/add_case', methods=['POST'])
 def add_case():
@@ -81,10 +83,29 @@ def add_case():
 
         return redirect(url_for('registroSuccess'))
 
+
 @app.route('/registroSuccess')
 def registroSuccess():
     return render_template('registro-Success.html')
 # END Modulo Registro Caso
+
+@app.route('/registro_Success')
+def registroSuccess():
+    return render_template('registro-Success.html')
+# END Modulo Registro Caso
+
+#Modulo Visualización
+@app.route('/Visual')
+def Mapa():
+    return render_template('Mapa.html')
+# END Modulo Visualización
+
+# Modulo Busqueda
+@app.route('/Gestionar')
+def editar():
+    return render_template('Gestion.html')
+# END Modulo Busqueda
+
 
 """@app.route('/edit/<id>', methods = ['POST', 'GET'])
 def get_contact(id):

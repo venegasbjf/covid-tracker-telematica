@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\melod\covid-tracker-telematica\venv"
+VIRTUAL_ENV="C:\Users\PC\Documents\Universidad\Covid\covid-tracker-telematica\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
