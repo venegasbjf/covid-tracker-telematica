@@ -1,23 +1,21 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<a href="{{url_for('PagiP')}}" class= "nav-enlace">Inicio</a>
-<a href="{{url_for('registro')}}" class= "nav-enlace">Registro</a>
 <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">¿Qué tipo de usuario eres?</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="admin">Administrador</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="registro">Ayudante</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="Mapa">Doctor</a>
         </li>
       </ul>
     </div>
