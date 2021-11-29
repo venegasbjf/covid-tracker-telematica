@@ -53,6 +53,7 @@ def add_user():
 def adminSuccess():
     return render_template('admin-success.html')
 # END Modulo Administration
+
 # Modulo Registro caso
 @app.route('/registro')
 def registro():
@@ -83,13 +84,18 @@ def add_case():
 def registroSuccess():
     return render_template('registro-Success.html')
 # END Modulo Registro Caso
+
 #Modulo Visualización
 @app.route('/Visualización')
 def Mapa():
     return render_template('Mapa.html')
-# Modulo Otro
+# END Modulo Visualización
 
-# END Modulo Otro
+# Modulo Busqueda
+@app.route('/Visualización')
+def Mapa():
+    return render_template('Mapa.html')
+# END Modulo Busqueda
 
 """@app.route('/edit/<id>', methods = ['POST', 'GET'])
 def get_contact(id):
