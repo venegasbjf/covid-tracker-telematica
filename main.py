@@ -86,15 +86,15 @@ def registroSuccess():
 # END Modulo Registro Caso
 
 #Modulo Visualización
-@app.route('/Visualización')
+@app.route('/Visual')
 def Mapa():
     return render_template('Mapa.html')
 # END Modulo Visualización
 
 # Modulo Busqueda
-@app.route('/Visualización')
+@app.route('/Gestionar')
 def Mapa():
-    return render_template('Mapa.html')
+    return render_template('Gestion.html')
 # END Modulo Busqueda
 
 """@app.route('/edit/<id>', methods = ['POST', 'GET'])
