@@ -2,12 +2,17 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 import os, pymysql
 from dotenv import load_dotenv, find_dotenv
+from flask_bcrypt import Bcrypt
+from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Load Enviroment Variables from .env file
 load_dotenv(find_dotenv())
 
 # initializations
 app = Flask(__name__)
+
+bcrypt = Bcrypt(app)
 
 # Mysql Connection
 app.config['MYSQL_HOST'] = os.getenv('dbHOST')
@@ -46,6 +51,8 @@ def add_user():
         cur.execute('INSERT INTO `Modulo administración` (Nombres,Apellidos,Cédula,Rol,Usuario,Contraseña) VALUES(%s,%s,%s,%s,%s,%s)',
         (name,lastName,idNumber,rol,username,password))
         mysql.connection.commit()
+
+        new_user = User(name,lastName,idNumber,rol,username,password)
 
         return redirect(url_for('adminSuccess'))
 
