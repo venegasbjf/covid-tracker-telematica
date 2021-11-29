@@ -1,23 +1,37 @@
-{% extends "layout.html" %}
-{% block body %}
-
-<div class="container-fluid">
-    <a class="navbar-brand" class= "text-info " href="#">¿Qué tipo de usuario eres?</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Login">Administrador</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Login">Ayudante</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Login">Doctor</a>
-        </li>
-      </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">COVID Tracker</a>
     </div>
-  </div>
-{% endblock %}
+    <div class="container-fluid">
+     <a class="navbar-brand" class= "text-info " href="#">¿Qué tipo de usuario eres?</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Login">Administrador</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Login">Ayudante</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Login">Doctor</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+</body>
+</html>
+
