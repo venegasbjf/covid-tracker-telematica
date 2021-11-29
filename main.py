@@ -93,7 +93,7 @@ def Mapa():
 
 # Modulo Busqueda
 @app.route('/Gestionar')
-def Mapa():
+def editar():
     return render_template('Gestion.html')
 # END Modulo Busqueda
 
