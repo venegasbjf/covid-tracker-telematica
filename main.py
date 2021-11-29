@@ -53,7 +53,36 @@ def add_user():
 def adminSuccess():
     return render_template('admin-success.html')
 # END Modulo Administration
+# Modulo Registro caso
+@app.route('/registro')
+def registro():
+    return render_template('registro.html')
 
+@app.route('/add_case', methods=['POST'])
+def add_case():
+    if request.method == 'POST':
+        name = request.form['firstName']
+        lastName = request.form['lastName']
+        idNumber = str(request.form['idNumber'])
+        Sexo = request.form['Sexo']
+        FechaNacimiento = request.form['Fecha de nacimiento']
+        DireccionResidencia = request.form['Direccion de residencia']
+        DireccionTrabajo = request.form['Direccion trabajo']
+        ResultadoExamen = request.form['ResultadoExamen']
+        FechaExamen = request.form['Fecha examen']
+
+        
+        cur = mysql.connection.cursor()
+        cur.execute('INSERT INTO `Registro de Caso` (Nombres,Apellidos,Cédula,Sexo,Fecha de nacimiento,Dirección de residencia,Dirección Trabajo,Resultado Examen,Fecha examen) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)',
+        (name,lastName,idNumber,Sexo,FechaNacimiento,DireccionResidencia,DireccionTrabajo,ResultadoExamen,FechaExamen))
+        mysql.connection.commit()
+
+        return redirect(url_for('registroSuccess'))
+
+@app.route('/registro_Success')
+def registroSuccess():
+    return render_template('registro-Success.html')
+# END Modulo Registro Caso
 #Modulo Visualización
 @app.route('/Visualización')
 def Mapa():
