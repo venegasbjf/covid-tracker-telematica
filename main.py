@@ -101,6 +101,11 @@ def editar():
     return render_template('Gestion.html')
 # END Modulo Busqueda
 
+#Log in
+@app.route('/Login')
+def Login():
+    return render_template('Login.html')
+#End Log in
 
 """@app.route('/edit/<id>', methods = ['POST', 'GET'])
 def get_contact(id):
