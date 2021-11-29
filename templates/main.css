@@ -10,7 +10,7 @@
     font-family: Montserrat, sans-serif;
   }
   .navbar li a, .navbar .navbar-brand {
-    color: rgb(0, 0, 0) !important;
+    color: rgb(72, 255, 0) !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
     color: #00ff0d !important;
@@ -18,7 +18,7 @@
   }
   .navbar-default .navbar-toggle {
     border-color: transparent;
-    color: rgb(0, 0, 0) !important;
+    color: rgb(30, 255, 0) !important;
   }
   .dropdown li a {
     color: #ff3c00 !important;
