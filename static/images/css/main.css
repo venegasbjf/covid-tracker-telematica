@@ -4,4 +4,5 @@
     color: white;
     padding: 10px 30px;
 }
-.navbarNavDropdown { background-color: #FF0000; }
+.navbar-default .navbar-nav>.open>a.dropdown-toggle{
+    background-color: #f4511e !important;}
