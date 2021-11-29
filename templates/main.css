@@ -10,10 +10,10 @@
     font-family: Montserrat, sans-serif;
   }
   .navbar li a, .navbar .navbar-brand {
-    color: #fff !important;
+    color: rgb(0, 0, 0) !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #f4511e !important;
+    color: #00ff0d !important;
     background-color: #fff !important;
   }
   .navbar-default .navbar-toggle {
