@@ -100,7 +100,7 @@ def loginAdmin():
 # END Modulo Administration
 # Modulo Logout Administrador
 @app.route('/logout')
-def logoutAdmin():
+def logout():
     session.clear()
     flash('Te has Salío de la cuenta exitosamente.')
     return redirect(url_for('PagiP'))
